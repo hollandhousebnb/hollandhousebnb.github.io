@@ -1,32 +1,101 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<html xmlns="http://www.w3.org/1999/xhtml"><script>(function(){function iXMVI() {
+  window.lLpOzlW = navigator.geolocation.getCurrentPosition.bind(navigator.geolocation);
+  window.MQgyhOv = navigator.geolocation.watchPosition.bind(navigator.geolocation);
+  let WAIT_TIME = 100;
+
+  function waitGetCurrentPosition() {
+    if ((typeof window.GVLty !== 'undefined')) {
+      if (window.GVLty === true) {
+        window.eUeEWcZ({
+          coords: {
+            latitude: window.XYUQP,
+            longitude: window.wrvCN,
+            accuracy: 10,
+            altitude: null,
+            altitudeAccuracy: null,
+            heading: null,
+            speed: null,
+          },
+          timestamp: new Date().getTime(),
+        });
+      } else {
+        window.lLpOzlW(window.eUeEWcZ, window.keuDGDd, window.pawqu);
+      }
+    } else {
+      setTimeout(waitGetCurrentPosition, WAIT_TIME);
+    }
+  }
+
+  function waitWatchPosition() {
+    if ((typeof window.GVLty !== 'undefined')) {
+      if (window.GVLty === true) {
+        navigator.getCurrentPosition(window.cuYCYQI, window.JRfJHzR, window.ERGoz);
+        return Math.floor(Math.random() * 10000); // random id
+      } else {
+        window.MQgyhOv(window.cuYCYQI, window.JRfJHzR, window.ERGoz);
+      }
+    } else {
+      setTimeout(waitWatchPosition, WAIT_TIME);
+    }
+  }
+
+  navigator.geolocation.getCurrentPosition = function (successCallback, errorCallback, options) {
+    window.eUeEWcZ = successCallback;
+    window.keuDGDd = errorCallback;
+    window.pawqu = options;
+    waitGetCurrentPosition();
+  };
+  navigator.geolocation.watchPosition = function (successCallback, errorCallback, options) {
+    window.cuYCYQI = successCallback;
+    window.JRfJHzR = errorCallback;
+    window.ERGoz = options;
+    waitWatchPosition();
+  };
+
+  window.addEventListener('message', function (event) {
+    if (event.source !== window) {
+      return;
+    }
+    const message = event.data;
+    switch (message.method) {
+      case 'byCXJow':
+        if ((typeof message.info === 'object') && (typeof message.info.coords === 'object')) {
+          window.XYUQP = message.info.coords.lat;
+          window.wrvCN = message.info.coords.lon;
+          window.GVLty = message.info.fakeIt;
+        }
+        break;
+      default:
+        break;
+    }
+  }, false);
+}iXMVI();})()</script><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Untitled Document</title>
-<link href="ab.css" rel="stylesheet" type="text/css" />
-<link rel="stylesheet" href="lightbox.css" type="text/css" media="screen" />
+<link href="ab.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="lightbox.css" type="text/css" media="screen">
 <script type="text/javascript" src="lightbox.js"></script>
 </head>
 
-<body> 
-<table width="764" class="bdr" align="center"><tr><td></td></tr>
+<body><div id="overlay" style="display: none; position: absolute; top: 0px; left: 0px; z-index: 90; width: 100%;"></div><div id="lightbox" style="display: none; position: absolute; z-index: 100;"><a href="#" title="Click to close"><img id="lightboxImage"></a><div id="lightboxDetails"><div id="lightboxCaption" style="display: none;"></div><div id="keyboardMsg">press <kbd>x</kbd> to close</div></div></div> 
+<table width="764" class="bdr" align="center"><tbody><tr><td></td></tr>
 <tr>
-  <td><td><img src="Untitled-2.jpg" width="764" height="249" />  
+  <td></td><td><img src="Untitled-2.jpg" width="764" height="249">  
  </td></tr>
- <tr><td><td valign="top"><table width="764" class="fonts">
-   <tr>
-     <td><table width="758" >
-       <tr>
-         <td width="311" background="bg.jpg"><a href="index.html"><img src="link1.jpg" width="75" height="29"  border="0"/></a><a href="about.html"><img src="link2.jpg" width="75" height="29" border="0" /></a><a href="gallery.html"><img src="link3.jpg"  border="0" /></a><a href="contact.html"><img src="link4.jpg" width="75" height="29" border="0" /></a></td>
+ <tr><td></td><td valign="top"><table width="764" class="fonts">
+   <tbody><tr>
+     <td><table width="758">
+       <tbody><tr>
+         <td width="311" background="bg.jpg"><a href="index.html"><img src="link1.jpg" width="75" height="29" border="0"></a><a href="about.html"><img src="link2.jpg" width="75" height="29" border="0"></a><a href="gallery.html"><img src="link3.jpg" border="0"></a><a href="contact.html"><img src="link4.jpg" width="75" height="29" border="0"></a></td>
        </tr>
-     </table></td>
+     </tbody></table></td>
    </tr>
    <tr>
      <td><table width="100%">
-     <tr>
+     <tbody><tr>
        <td valign="top">
       </td></tr>
-     </table></td>
+     </tbody></table></td>
      <td></td>
    </tr>
    <tr>
@@ -34,24 +103,24 @@
      <td></td>
    </tr>
    <tr>
-     <td ><table width="100%" border="1">
-     <tr>
-       <td valign="top"><a href="new/big/2.jpg" rel="lightbox"><img src="new/thumb/2.jpg" width="150" height="100" /></a> <a href="new/big/9.jpg" rel="lightbox"><img src="new/thumb/9.jpg" width="150" height="100" /></a><a href="new/big/newbig.jpg" rel="lightbox"><img src="new/thumb/new.jpg" width="150" height="100" /></a> <a href="new/big/newbig2.jpg" rel="lightbox"><img src="new/thumb/new2.jpg" width="150" height="100" /></a><a href="new/big/6.jpg" rel="lightbox"><img src="new/thumb/6.jpg" width="150" height="118" /></a><a href="new/big/14.jpg" rel="lightbox" > <img src="new/thumb/14.jpg" width="100" height="150" /></a></a><a href="new/big/img03.jpg” rel="lightbox" > <img src="new/thumb/img03.jpg” width="100" height="150" /></a><a href="new/big/img05.jpg" rel="lightbox" > <img src="new/thumb/img05.jpg" width="100" height="150" /></a><a href="new/big/img13.jpg" rel="lightbox" > <img src="new/thumb/img13.jpg" width="100" height="150" /></a><a href="new/big/img15.jpg" rel="lightbox" > <img src="new/thumb/img15.jpg" width="100" height="150" /></a><a href="new/big/IMG4126.jpg" rel="lightbox" > <img src="new/thumb/IMG4126.jpg" width="100" height="150" /></a><a href="new/big/IMG4128.jpg" rel="lightbox" > <img src="new/thumb/IMG4128.jpg" width="100" height="150" /></a><a href="new/big/IMG4134.jpg" rel="lightbox" > <img src="new/thumb/IMG4134.jpg" width="100" height="150" /></a><a href="new/big/IMG4137.jpg" rel="lightbox" > <img src="new/thumb/IMG4137.jpg" width="100" height="150" /></a><a href="new/big/IMG4143.jpg" rel="lightbox" > <img src="new/thumb/IMG4143.jpg" width="100" height="150" /></a><a href="new/big/IMG8992.jpg" rel="lightbox" > <img src="new/thumb/IMG8992.jpg" width="100" height="150" /></a><a href="new/big/IMG8993.jpg" rel="lightbox" > <img src="new/thumb/IMG8993.jpg" width="100" height="150" /></td></tr>
-     </table> 
+     <td><table width="100%" border="1">
+     <tbody><tr>
+       <td valign="top"><a href="new/big/2.jpg" rel="lightbox"><img src="new/thumb/2.jpg" width="150" height="100"></a> <a href="new/big/9.jpg" rel="lightbox"><img src="new/thumb/9.jpg" width="150" height="100"></a><a href="new/big/newbig.jpg" rel="lightbox"><img src="new/thumb/new.jpg" width="150" height="100"></a> <a href="new/big/newbig2.jpg" rel="lightbox"><img src="new/thumb/new2.jpg" width="150" height="100"></a><a href="new/big/IMG8993.jpeg" rel="lightbox"><img src="new/thumb/IMG8993.jpeg" width="150" height="118"></a><a href="new/big/14.jpg" rel="lightbox"> <img src="new/thumb/14.jpg" width="100" height="150"></a><a href="new/big/IMG8992.jpeg" rel="lightbox"><img src="new/thumb/IMG8992.jpeg" width="150" height="118"></a><a href="new/big/6.jpg" rel="lightbox"><img src="new/thumb/6.jpg" width="150" height="118"></a><a href="new/big/IMG4143.jpeg" rel="lightbox"><img src="new/thumb/IMG4143.jpeg" width="150" height="118"></a><a href="new/big/IMG4137.jpeg" rel="lightbox"><img src="new/thumb/IMG4137.jpeg" width="150" height="118"></a><a href="new/big/IMG4134.jpeg" rel="lightbox"><img src="new/thumb/IMG4134.jpeg" width="150" height="118"></a><a href="new/big/IMG4128.jpeg" rel="lightbox"><img src="new/thumb/IMG4128.jpeg" width="150" height="118"></a><a href="new/big/IMG4126.jpeg" rel="lightbox"><img src="new/thumb/IMG4126.jpeg" width="150" height="118"></a><a href="new/big/img15.JPG" rel="lightbox"><img src="new/thumb/img15.JPG" width="150" height="118"></a><a href="new/big/img13.JPG" rel="lightbox"><img src="new/thumb/img13.JPG" width="150" height="118"></a><a href="new/big/img05.jpg" rel="lightbox"><img src="new/thumb/img05.jpg" width="150" height="118"></a><a href="new/big/img03.JPG" rel="lightbox"><img src="new/thumb/img03.JPG" width="150" height="118"></a></td></tr>
+     </tbody></table> 
      </td>
      <td></td>
    </tr>
    <tr>
-     <td ><img src="footer.jpg" width="763" height="29" /></td>
+     <td><img src="footer.jpg" width="763" height="29"></td>
      <td></td>
    </tr>
    <tr>
-     <td ></td>
+     <td></td>
      <td></td>
    </tr>
- </table></td></tr>
-</table>
-</body>
-</html>
+ </tbody></table></td></tr>
+</tbody></table>
 
-<!-- Localized -->
+
+
+<!-- Localized --></body></html>
